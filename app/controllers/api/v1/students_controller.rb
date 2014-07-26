@@ -1,6 +1,10 @@
 class API::V1::StudentsController < API::V1::BaseController
   before_action :set_student, only: [:show, :update, :destroy]
 
+  def index
+    @students = Student.all
+  end
+
   def show
   end
 
