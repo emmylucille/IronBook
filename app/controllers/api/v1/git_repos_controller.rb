@@ -1,8 +1,6 @@
 require 'open-uri'
 
-class GitReposController < ApplicationController
-  respond_to :json
-
+class API::V1::GitReposController < API::V1::BaseController
   def show
     @repositories = git_repositories(params[:username])
     render json: @repositories
