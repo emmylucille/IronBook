@@ -2,3 +2,14 @@
 @import 'neat';
 @import 'base/base';
 @import 'home';
+
+.container {
+  @include outer-container;
+  max-width: 465px;
+  margin: auto;
+}
+
+.student {
+  @include span-columns(4);
+  background-color: gray;
+}

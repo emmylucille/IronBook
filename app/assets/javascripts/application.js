@@ -27,7 +27,7 @@ var Person = Backbone.Model.extend({
 //COLLECTION:
 var Directory = Backbone.Collection.extend({
 	model: Person,
-	url: '/api/students',
+	url: 'api/students',
 
 	initialize: function() {
 
