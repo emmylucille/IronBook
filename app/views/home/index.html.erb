@@ -5,31 +5,20 @@
 </head>
 <body>
 
+  <p>Hello there</p>
 	<div class="user-container"></div>
 	<div class="directory-container"></div>
 
 	<script type="text/template" class="profile-template">
-		<img src="<%%= user.image_uid %>" class="user-image">
 		<dl class="user-details">
-			<dt>Name:</dt> <dd><%%= user.name %></dd>
-			<dt>Bio:</dt> <dd><%%= user.bio %></dd>
-			<dt>Email:</dt> <dd><%%= user.email %></dd>
-			<dt>Twitter:</dt> <dd><%%= user.twitter %></dd>
-			<dt>Github:</dt> <dd><%%= user.github %></dd>
-			<dt>LinkedIn:</dt> <dd><%%= user.linkedin %></dd>
-			<dt>Course:</dt> <dd><%%= user.course %></dd>
-			<dt>Role:</dt> <dd><%%= user.role %></dd>
-			<dt>Cohort:</dt> <dd><%%= user.cohort %></dd>
+			<dt>Name:</dt> <dd><%%= students.first.firstname %></dd>
 		</dl>
 	</script>
 
 	<script type="text/template" class="directory-template">
 		<img src="" class="user-image">
 		<ul class="user-details">
-			<li><%%= user.name %></li>
-			<li><%%= user.course %></li>
-			<li><%%= user.role %></li>
-			<li><%%= user.cohort %></li>
+			<li><%%= students.firstname %></li>
 		</ul>
 	</script>
 

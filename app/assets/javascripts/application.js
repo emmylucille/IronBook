@@ -22,14 +22,17 @@
 
 //MODEL:
 var Person = Backbone.Model.extend({
-  urlRoot: '/api'
+  urlRoot: '/students'
 });
+
+var person = new Person();
 
 
 //COLLECTION:
 var Directory = Backbone.Collection.extend({
 	model: Person,
-	url: '/api',
+	url: '/students',
+
 	initialize: function() {
 
 	},
@@ -39,17 +42,19 @@ var Directory = Backbone.Collection.extend({
 //VIEW: view for single person
 var PersonView = Backbone.View.extend({
 
-	template: _.template($('.profile-template').html() || ''),
+	template: _.template($('.profile-template').html().text),
 
   	initialize: function () {
-
+      $('.directory-container').append(this.el)
       this.model.fetch();
+      this.render();
   	},
 
   	render: function () {
-    	var template = _.template($('.profile-template').html().trim());
-		  var output = template({user: this.model.attributes});
-		  $('.directory-container').html(output);
+      this.$el.html(this.template(this.model.attributes))
+    	// var template = _.template($('.profile-template').html().trim());
+		  // var output = template({students: this.model.attributes});
+		  // $('.directory-container').html(output);
   	}
 });
 
@@ -57,8 +62,8 @@ var PersonView = Backbone.View.extend({
 var DirectoryView = Backbone.View.extend({
 
 	initialize: function (){
-
-     	this.collection.fetch();
+    this.collection.fetch();
+    this.render();
 	},
 
 
