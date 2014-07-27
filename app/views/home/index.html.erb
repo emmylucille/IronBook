@@ -1,12 +1,40 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>IronBook</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
+  <title>Yearbook</title>
+  <%= stylesheet_link_tag 'application' %>
 </head>
 <body>
 
+  <div class="container">
+
+    <div class="student">
+      <!-- <%= image_tag 'background.png', class: 'student-image' %> -->
+      <img src="" class="student-image">
+        <div class="student-details">
+          <p>Cohort Summer 2014</p>
+          <p>Chris Donovan</p>
+          <p>Front End</p>
+        </div>
+    </div>
+
+  <div>
+
+	<div class="user-container"></div>
+	<div class="directory-container"></div>
+
+	<script type="text/template" class="profile-template">
+		<dl class="user-details">
+			<dt>Name:</dt> <dd><%%= students.firstname %></dd>
+		</dl>
+	</script>
+
+	<script type="text/template" class="directory-template">
+		<img src="" class="user-image">
+		<ul class="user-details">
+			<li>hi<%%= students.firstname %></li>
+		</ul>
+	</script>
+  <%= javascript_include_tag 'application' %>
 </body>
 </html>
