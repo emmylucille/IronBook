@@ -3,13 +3,21 @@
 @import 'base/base';
 @import 'home';
 
+//Colors
+$gray: #252526;
+$lightGray: #f5f6f7;
+
 .container {
   @include outer-container;
-  max-width: 465px;
+  max-width: 965px;
   margin: auto;
 }
 
 .student {
   @include span-columns(4);
-  background-color: gray;
+  background-color: $lightGray;
+  height: 375px;
+  img {
+    height: 250px;
+  }
 }
