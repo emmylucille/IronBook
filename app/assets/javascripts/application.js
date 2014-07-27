@@ -12,26 +12,22 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
-//= require_tree .
 //= require underscore
 //= require backbone
+//= require_self
 
-'use strict';
-
+'use strict'
+console.log('test');
 
 //MODEL:
 var Person = Backbone.Model.extend({
-  urlRoot: '/students'
 });
-
-var person = new Person();
 
 
 //COLLECTION:
 var Directory = Backbone.Collection.extend({
 	model: Person,
-	url: '/students',
+	url: '/api/students',
 
 	initialize: function() {
 
@@ -42,27 +38,29 @@ var Directory = Backbone.Collection.extend({
 //VIEW: view for single person
 var PersonView = Backbone.View.extend({
 
-	template: _.template($('.profile-template').html().text),
-
   	initialize: function () {
-      $('.directory-container').append(this.el)
       this.model.fetch();
+      // console.log(this.model);
       this.render();
   	},
 
   	render: function () {
-      this.$el.html(this.template(this.model.attributes))
-    	// var template = _.template($('.profile-template').html().trim());
-		  // var output = template({students: this.model.attributes});
-		  // $('.directory-container').html(output);
+    	var template = _.template($('.profile-template').html());
+      // this.$el.html( template );
+		  var output = template({students: this.model.attributes});
+		  $('.directory-container').html(output);
+      // this.$el.html(template(this.model.toJSON()));
+      return this;
   	}
 });
+
 
 //VIEW: list of all students
 var DirectoryView = Backbone.View.extend({
 
 	initialize: function (){
     this.collection.fetch();
+    console.log(this.collection);
     this.render();
 	},
 
@@ -77,9 +75,9 @@ var DirectoryView = Backbone.View.extend({
 var AppRouter = Backbone.Router.extend({
 
   routes: {
-    'home'      : '', //login screen
-    'users/:id' : 'showUser', //show one user's information
-    'users'     : 'showAll' //show all users
+    'home'         : '', //login screen
+    'api/students/:id' : 'showUser', //show one user's information
+    'api/students'     : 'showAll' //show all users
   },
 
   initialize: function () {
@@ -106,4 +104,4 @@ var AppRouter = Backbone.Router.extend({
 //instantiate the Router
 var router = new AppRouter();
 
-Backbone.history.start()
+Backbone.history.start();
