@@ -84,10 +84,12 @@
 	</script>
 
 	<script type="text/template" class="directory-template">
+    <%% _.each(students, function(student) { %>
 		<img src="" class="user-image">
 		<ul class="user-details">
-			<li>hi<%%= students.firstname %></li>
+			<li>hi<%%= student.get('bio') %></li>
 		</ul>
+    <%% }); %>
 	</script>
 
   <%= javascript_include_tag 'application' %>

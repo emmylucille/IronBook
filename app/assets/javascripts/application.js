@@ -55,17 +55,21 @@ var PersonView = Backbone.View.extend({
 //VIEW: list of all students
 var DirectoryView = Backbone.View.extend({
 
+	el: '.directory-container',
+
 	initialize: function (){
-    this.collection.fetch();
-    console.log(this.collection);
-    this.render();
+		var that = this;
+    this.collection.fetch().done(function(){
+			console.log(that.collection);
+			that.render();
+		})
 	},
 
 
 	render: function(){
-		var template = _.template($('.directory-template').html().trim());
-		var output = '';
-		$('.directory-container').html(output);
+		var template = _.template($('.directory-template').html(), {students: this.collection.models});
+		this.$el.html(template);
+		return this;
 	}
 });
 
@@ -90,6 +94,7 @@ var AppRouter = Backbone.Router.extend({
   },
 
   showAll: function () {
+		console.log('showAll');
     $(document).ready(function () {
       new DirectoryView({
         collection: new Directory()
