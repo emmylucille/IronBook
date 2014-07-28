@@ -1,24 +1,78 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Yearbook</title>
+  <title>IronBook</title>
   <%= stylesheet_link_tag 'application' %>
 </head>
 <body>
+  <header>
+  </header>
 
   <div class="container">
 
-    <div class="student">
-      <!-- <%= image_tag 'background.png', class: 'student-image' %> -->
+    <div class="students">
       <img class="student-image" src="http://media-cache-ak0.pinimg.com/originals/ef/cd/f8/efcdf86dd42bb18117dd1c114d2eb46c.jpg">
         <div class="student-details">
-          <p>Cohort Summer 2014</p>
-          <p>Chris Donovan</p>
-          <p>Front End</p>
+          <p><span class="cohort">Cohort / Summer 2014</span></p>
+          <p><span class="name">Christine Donovan</span></p>
+          <p><span class="class">Front End</span></p>
+          <ul class="media-links">
+            <a href=""><%= image_tag 'github-hover.png' %></a>
+            <a href=""><%= image_tag 'linkedin-hover.png' %></a>
+            <a href=""><%= image_tag 'twitter-hover.png' %></a>
+          </ul>
+      </div>
+    </div>
+
+    <div class="students">
+      <img class="student-image" src="http://media-cache-ak0.pinimg.com/originals/ef/cd/f8/efcdf86dd42bb18117dd1c114d2eb46c.jpg">
+        <div class="student-details">
+          <p><span class="cohort">Cohort / Summer 2014</span></p>
+          <p><span class="name">Christine Donovan</span></p>
+          <p><span class="class">Front End</span></p>
+          <ul class="media-links">
+            <a href=""><%= image_tag 'github-hover.png' %></a>
+            <a href=""><%= image_tag 'linkedin-hover.png' %></a>
+            <a href=""><%= image_tag 'twitter-hover.png' %></a>
+          </ul>
+        </div>
+    </div>
+    <div class="students">
+      <img class="student-image" src="http://media-cache-ak0.pinimg.com/originals/ef/cd/f8/efcdf86dd42bb18117dd1c114d2eb46c.jpg">
+        <div class="student-details">
+          <p><span class="cohort">Cohort / Summer 2014</span></p>
+          <p><span class="name">Christine Donovan</span></p>
+          <p><span class="class">Front End</span></p>
+          <ul class="media-links">
+            <a href=""><%= image_tag 'github-hover.png' %></a>
+            <a href=""><%= image_tag 'linkedin-hover.png' %></a>
+            <a href=""><%= image_tag 'twitter-hover.png' %></a>
+          </ul>
         </div>
     </div>
 
   </div>
+
+  <div class="container">
+
+    <div class="profile">
+      <img class="profile-image" src="http://media-cache-ak0.pinimg.com/originals/ef/cd/f8/efcdf86dd42bb18117dd1c114d2eb46c.jpg">
+      <section>
+        <h1>Christine</h1>
+        <hr></hr>
+        <h2>Donovan</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        <ul class="social-links">
+          <a href=""><%= image_tag 'twitter-hover.png' %></a>
+          <a href=""><%= image_tag 'linkedin-hover.png' %></a>
+          <a href=""><%= image_tag 'github-hover.png' %></a>
+        </ul>
+      </section>
+    </div>
+
+  </div>
+
+  <footer></footer>
 
 	<div class="user-container"></div>
 	<div class="directory-container"></div>
@@ -37,6 +91,6 @@
 	</script>
 
   <%= javascript_include_tag 'application' %>
-  
+
 </body>
 </html>

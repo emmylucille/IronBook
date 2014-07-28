@@ -40,16 +40,13 @@ var PersonView = Backbone.View.extend({
 
   	initialize: function () {
       this.model.fetch();
-      // console.log(this.model);
       this.render();
   	},
 
   	render: function () {
     	var template = _.template($('.profile-template').html());
-      // this.$el.html( template );
 		  var output = template({students: this.model.attributes});
 		  $('.directory-container').html(output);
-      // this.$el.html(template(this.model.toJSON()));
       return this;
   	}
 });

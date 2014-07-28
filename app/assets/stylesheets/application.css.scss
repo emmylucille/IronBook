@@ -3,21 +3,132 @@
 @import 'base/base';
 @import 'home';
 
+@import url('http://fonts.googleapis.com/css?family=Playfair+Display:400,400italic');
+@import url('http://fonts.googleapis.com/css?family=PT+Sans:400,400italic');
+
 //Colors
-$gray: #252526;
+$gray: #595a5a;
 $lightGray: #f5f6f7;
+$black: #252526;
+$blue: #c9e8e8;
+$red: #f04931;
+
+$serif: Playfair Display;
+$sansSerif: PT Sans;
+
+header{
+
+}
 
 .container {
   @include outer-container;
   max-width: 965px;
   margin: auto;
+  padding: 100px 0px;
 }
 
-.student {
+
+//Student List View
+.students {
   @include span-columns(4);
+  @include omega(3n);
   background-color: $lightGray;
   height: 375px;
-  img {
+  // box-shadow: 1px 1px 8px #afafaf;
+  .student-image {
     height: 250px;
   }
+  .student-details {
+    padding: 2px 15px 2px 12px;
+    .cohort {
+      font-family: $sansSerif;
+      font-size: 12px;
+      color: $black;
+      letter-spacing: 1px;
+      font-style: italic;
+    }
+    .name {
+      font-family: $serif;
+      font-size: 18px;
+      letter-spacing: 1px;
+      color: $black;
+      border-top: 1px solid $blue;
+      padding-top: 4px;
+    }
+    .class {
+      font-family: $sansSerif;
+      font-size: 13px;
+      color: $gray;
+      letter-spacing: 1px;
+      float: left;
+      margin-top: 20px;
+      // font-weight: bold;
+      // text-transform: uppercase;
+    }
+    .media-links img {
+      float: right;
+      height: 25px;
+      margin: 15px 0px 0px 10px;
+    }
+  }
+}
+
+.students:hover {
+  box-shadow: 1px 1px 8px #afafaf;
+}
+
+
+//Profile View
+.profile {
+  .profile-image {
+    @include span-columns(6);
+    height: 600px;
+  }
+
+  section {
+    @include span-columns(6);
+    text-align: center;
+    padding: 50px 0px 30px 0px;
+    hr{
+      width: 300px;
+      margin: auto;
+      color: $blue;
+      background-color: $blue;
+      height: 2px;
+    }
+    h1 {
+      font-family: $serif;
+      font-size: 50px;
+      font-weight: 400;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: $black;
+      margin-bottom: 15px;
+    }
+    h2 {
+      font-family: $serif;
+      font-size: 35px;
+      font-weight: 400;
+      letter-spacing: 1px;
+      text-transform: lowercase;
+      color: $black;
+      margin-top: 10px;
+    }
+    p {
+      font-family: $sansSerif;
+      color: $gray;
+      font-size: 15px;
+      margin-top: 40px;
+      padding: 0px 40px;
+    }
+    .social-links img {
+      margin: 100px 10px 10px 0px;
+      height: 30px;
+    }
+  }
+}
+
+footer{
+  height: 200px;
+  background-color: white;
 }
