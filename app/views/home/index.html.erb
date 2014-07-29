@@ -8,7 +8,7 @@
   <header>
   </header>
 
-  <!-- <div class="container">
+  <div class="container">
 
     <div class="students">
       <img class="student-image" src="http://media-cache-ak0.pinimg.com/originals/ef/cd/f8/efcdf86dd42bb18117dd1c114d2eb46c.jpg">
@@ -25,7 +25,7 @@
     </div>
 
     <div class="students">
-      <img class="student-image" src="http://media-cache-ak0.pinimg.com/originals/ef/cd/f8/efcdf86dd42bb18117dd1c114d2eb46c.jpg">
+      <img class="student-image" src="http://cdn.photographyproject.com.au/wp-content/uploads/2013/01/headshots-photography-project-14.jpg">
         <div class="student-details">
           <p><span class="cohort">Cohort / Summer 2014</span></p>
           <p><span class="name">Christine Donovan</span></p>
@@ -38,7 +38,7 @@
         </div>
     </div>
     <div class="students">
-      <img class="student-image" src="http://media-cache-ak0.pinimg.com/originals/ef/cd/f8/efcdf86dd42bb18117dd1c114d2eb46c.jpg">
+      <img class="student-image" src="http://1.bp.blogspot.com/-bjEiZ79Eip0/UGr9GiIjJAI/AAAAAAAAODU/75ErqjjioJY/s1600/img_5068-2.jpg">
         <div class="student-details">
           <p><span class="cohort">Cohort / Summer 2014</span></p>
           <p><span class="name">Christine Donovan</span></p>
@@ -70,25 +70,44 @@
       </section>
     </div>
 
-  </div> -->
+  </div>
 
-	<!-- <div class="user-container"></div> -->
+  <footer></footer>
+
+	<div class="user-container"></div>
 	<div class="directory-container"></div>
 
-  <script type="text/template" class="profile-template">
-    <p>Student</p>
- 	  <dl class="user-details">
-       <dt>Name:</dt> <dd><%%= student %></dd>
-	 	</dl>
+	<script type="text/template" class="profile-template">
+		<dl class="user-details">
+			<dt>Name:</dt> <dd><%%= student.get('firstname') %></dd>
+		</dl>
 	</script>
 
-
-	<script type="text/template" class="directory-template">
+  <script type="text/template" class="directory-template">
     <%% _.each(students, function(student) { %>
 		<img src="" class="user-image">
 		<ul class="user-details">
-			<li>hi<%%= student.get('bio') %></li>
+      <li><%%= student.get('firstname') + " " + student.get('lastname') %></li>
+			<li><%%= student.get('bio') %></li>
 		</ul>
+    <%% }); %>
+	</script>
+
+	<script type="text/template" class="directory-template">
+    <%% _.each(students, function(student) { %>
+		<div class="students">
+      <img class="student-image" src="http://media-cache-ak0.pinimg.com/originals/ef/cd/f8/efcdf86dd42bb18117dd1c114d2eb46c.jpg">
+        <div class="student-details">
+          <p><span class="cohort">Cohort</span></p>
+          <p><span class="name"><%%= student.get('firstname')  + " " + student.get('lastname') %></span></p>
+          <p><span class="class"><%%= student.get('cohort_class') %></span></p>
+          <ul class="media-links">
+            <a href=""><%= image_tag 'github-hover.png' %></a>
+            <a href=""><%= image_tag 'linkedin-hover.png' %></a>
+            <a href=""><%= image_tag 'twitter-hover.png' %></a>
+          </ul>
+      </div>
+    </div>
     <%% }); %>
 	</script>
 

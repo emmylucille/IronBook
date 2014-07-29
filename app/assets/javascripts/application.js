@@ -38,17 +38,22 @@ var Directory = Backbone.Collection.extend({
 //VIEW: view for single person
 var PersonView = Backbone.View.extend({
 
-  	initialize: function () {
-      this.model.fetch();
-      this.render();
-  	},
+		el: '.directory-container',
 
-  	render: function () {
-    	var template = _.template($('.profile-template').html());
-		  var output = template({students: this.model.attributes});
-		  $('.directory-container').html(output);
-      return this;
-  	}
+  	initialize: function (){
+			var that = this;
+			this.model.fetch().done(function(){
+				console.log(that.collection);
+				that.render();
+			})
+		},
+
+
+		render: function(){
+			var template = _.template($('.profile-template').html(), {students: this.model.models});
+			this.$el.html(template);
+			return this;
+		}
 });
 
 
@@ -64,6 +69,7 @@ var DirectoryView = Backbone.View.extend({
 			that.render();
 		})
 	},
+
 
 	render: function(){
 		var template = _.template($('.directory-template').html(), {students: this.collection.models});
